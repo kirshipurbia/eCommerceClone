@@ -1,0 +1,45 @@
+This is an Ecommerce Website By Vatsal Purbia 
+
+My key feature is Reviewer chat 
+
+Demo Porject
+ECOMMERCE
+Tech Stack -
+Nodejs
+Frame work – Express js
+Type Script
+DataBase – Mongo db
+Redis
+Week 1
+admin
+1. Admin should be able to login , forgot-passowrd , reset-password , logout ,
+2. add Products , view Product , View products , Edit porducts , delete Products
+user
+1. user registration and login , logout , singin , changepassword , forgot password
+2. user profile management(updateing personal information,password,password reset)
+product
+1. prduct add,edit and delete product
+2 .product serching and filtering
+3 . Stock managment
+cart
+1. Allow all user to add and delete products
+2. Edit quantity of products in cart
+Order
+1. Place order
+2. Order history
+Week 2
+Product Review Chat
+1: On porducts review , users can start personal chat with the Reviewer and have discussion about
+product
+Implementing whole chat system through which reviewer and user can share photos and messages
+1 : RND about xmpp Protocol and how to use it
+2 : Listing all the API’s and knowing there flow
+3 : Implenting logic in the APIs
+4 : Testing APIs
+Week 3
+1: Adding extra features to the porduct and running tests on the whole project that all apis are
+working fine
+2: Adding TTL , PUB/SUB for otp verification
+3 : RND about TTL and PUB/SUB And how to use them
+4 : Implementing this on OTP in redis
+5 : Testing this feature

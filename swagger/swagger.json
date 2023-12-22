@@ -1,0 +1,91 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "description": "E-commerce Demo Application APIs",
+        "title": "E-Commerce",
+        "version": "1.0.0"
+    },
+    "components": {
+        "securitySchemes": {
+            "BasicAuth": {
+                "type": "http",
+                "scheme": "basic"
+            },
+            "BearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        },
+        "parameters": {
+            "APIKey": {
+                "name": "api-key",
+                "in": "header",
+                "description": "API Key",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "example": "xxxx"
+                }
+            },
+            "tokeAuthorization" : {
+                "name" : "authorization",
+                "in" : "header",
+                "description" : "Jwt Token",
+                "required" : true,
+                "schema" :{
+                    "type" : "string",
+                    "example" : "Jwt Token"
+                }
+            },
+            "DeviceType": {
+                "name": "device-type",
+                "in": "header",
+                "description": "Device Type",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "example": "xxxx"
+                }
+            },
+            "DeviceModel": {
+                "name": "device-model",
+                "in": "header",
+                "description": "Device Model",
+                "required": true,
+                "schema": {
+                    "type": "string",
+                    "example": "xxxx"
+                }
+            },
+            "lang": {
+                "name": "lang",
+                "in": "header",
+                "description": "language",
+                "required": false,
+                "schema": {
+                    "type": "string",
+                    "example": "xxxx"
+                }
+            }
+            
+        }
+    },
+    "paths": {
+        "/user/home":{
+            "$ref" : "ecom/user-swagger.json#/paths/get-home"
+        },
+        "/user/singup":{
+            "$ref" : "ecom/user-swagger.json#/paths/post-singin"
+        },
+        "/user/verify-new-user":{
+            "$ref" : "ecom/user-swagger.json#/paths/post-singinVerification"
+        },
+        "/user/login" :{
+            "$ref" : "ecom/user-swagger.json#/paths/post-login"
+        },
+        "/user/logout":{
+            "$ref" : "ecom/user-swagger.json#/paths/patch-logout"
+        }
+
+    }
+}

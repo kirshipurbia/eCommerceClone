@@ -1,0 +1,74 @@
+{
+    "paths" : {
+        "get-home" : {
+            "get" : {
+                "tags" : [
+                    "Admin-Service-Active-Check"
+                ],
+                "description" : "This api is used for Checking the server is active or not",
+                "security" :[{
+                    "BasicAuth" : []
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "servers": [
+                    {
+                        "url": "http://localhost:3000" 
+                    }
+                ]
+            }
+        },
+        "post-login" :{
+            "post" :{
+                "tags" : [
+                    "Admin-ONboarding"
+                ],
+                "description" : "This api is used for admin login ",
+                "security" :[{
+                    "BasicAuth" : []
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "requestBody" :{
+                    "description" : "Object",
+                    "required" : true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/login"
+                            }
+                        }
+                    }
+                },
+                "servers": [
+                    {
+                        "url": "http://localhost:3000" 
+                    }
+                ]
+
+            }
+        }
+    },
+    "components" : {
+        "schemas" : {
+            "login" :{
+                "email" :{
+                    "type" : "string",
+                    "required" : true,
+                    "example" : "abc@example.com"
+                },
+                "password" :{
+                    "type" : "string",
+                    "required" : true,
+                    "example" : "Xa@#123"
+                }
+            }
+        }
+    }
+}

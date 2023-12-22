@@ -1,0 +1,148 @@
+
+
+## Chat Application API Documentation
+
+### Introduction
+
+This API documentation outlines the endpoints and functionality of the Chat Application using MQTT as the messaging protocol.
+
+### Base URL
+
+`https://localhost:3000`
+
+### Authentication
+
+User Authentication through SessionCheck TokenVerification 
+---
+
+### Endpoints
+
+#### 1. Subscribe to Reviewer Chat Messages
+
+- **Description**: Subscribe to a specific chat topic for reviewer messages.
+- **URL**: `/product/subReview/:reviewId`
+- **Method**: `POST`
+- **Parameters**:
+  - `reviewId` (URL Parameter) - Identifier for the review chat.
+- **Request Body**:
+  - None
+- **Response**:
+  - `200 OK`: Successfully subscribed to the chat.
+  - `500 Internal Server Error`: Subscription error.
+
+#### 2. Get Reviewer Chat Messages
+
+- **Description**: Retrieve chat messages for the subscribed reviewer chat.
+- **URL**: `/product/chat/user/reply`
+- **Method**: `GET`
+- **Parameters**:
+  - `reviewId` (URL Parameter) - Identifier for the review chat.
+- **Request Body**:
+  - None
+- **Response**:
+  - `200 OK`: Successfully retrieved chat messages.
+  - `500 Internal Server Error`: Error while retrieving messages.
+
+#### 3. Send Chat Message to Reviewer
+
+- **Description**: Send a chat message to a reviewer.
+- **URL**: `/product/chat/reviewer`
+- **Method**: `POST`
+- **Request Body**:
+  - `id` (String) - User ID of the sender.
+  - `message` (String) - The message content.
+  - `reviewId` (String) - Identifier for the review chat.
+  - `reciverId` (String) - Identifier for the message receiver.
+  - `replyToMessageId` (String, Optional) - Identifier for the replied message.
+- **Response**:
+  - `200 OK`: Chat message sent successfully.
+  - `500 Internal Server Error`: Error while sending the message.
+
+#### 4. Get All Messages for Review
+
+- **Description**: Retrieve all chat messages for a review.
+- **URL**: `/product/all-msgs/:reviewId`
+- **Method**: `GET`
+- **Parameters**:
+  - `reviewId` (URL Parameter) - Identifier for the review chat.
+- **Query Parameters**:
+  - `page` (Number, Optional) - Page number for pagination.
+  - `pageSize` (Number, Optional) - Number of messages per page.
+- **Response**:
+  - `200 OK`: Successfully retrieved all chat messages.
+  - `500 Internal Server Error`: Error while retrieving messages.
+
+#### 5. Send Chat Message to User
+
+- **Description**: Send a chat message to a user.
+- **URL**: `/product/chat/user/reply`
+- **Method**: `POST`
+- **Request Body**:
+  - `id` (String) - User ID of the sender.
+  - `message` (String) - The message content.
+  - `reviewId` (String) - Identifier for the review chat.
+  - `productId` (String) - Identifier for the product associated with the review.
+- **Response**:
+  - `201 Created`: Chat message sent successfully.
+  - `500 Internal Server Error`: Error while sending the message.
+
+#### 6. Add Reaction to Message
+
+- **Description**: Add a reaction (like, love, laugh, angry, sad) to a chat message.
+- **URL**: `/product/chat/reaction`
+- **Method**: `POST`
+- **Request Body**:
+  - `id` (String) - User ID of the reactor.
+  - `messageId` (String) - Identifier for the message to react to.
+  - `reaction` (String) - Reaction type (like, love, laugh, angry, sad).
+- **Response**:
+  - `200 OK`: Reaction added to the message.
+  - `500 Internal Server Error`: Error while adding the reaction.
+
+#### 7. Edit Chat Message
+
+- **Description**: Edit a chat message sent by the user.
+- **URL**: `/product/chat/edit
+- **Method**: `POST`
+- **Request Body**:
+  - `id` (String) - User ID of the message sender.
+  - `messageId` (String) - Identifier for the message to edit.
+  - `updatedMessage` (String) - The updated message content.
+- **Response**:
+  - `200 OK`: Chat message edited successfully.
+  - `500 Internal Server Error`: Error while editing the message.
+
+#### 8. Delete Chat Message
+
+- **Description**: Delete a chat message sent by the user.
+- **URL**: `/product/chat/delete`
+- **Method**: `POST`
+- **Request Body**:
+  - `id` (String) - User ID of the message sender.
+  - `messageId` (String) - Identifier for the message to delete.
+- **Response**:
+  - `200 OK`: Chat message deleted successfully.
+  - `500 Internal Server Error`: Error while deleting the message.
+
+#### 9. Unsubscribe Group
+
+- **Description**: Unsubscribe to the group messages .
+- **URL**: `/product/chat/unsubscribe/:reviewId`
+- **Method**: `POST`
+- **Request params**:
+  - `reviewId1 (string) - Identifier for unsubscribing from a groupchat
+- **Response**:
+  - `200 OK`: Unsubscribed successfully.
+  - `500 Internal Server Error`: Error while  unsubscribing
+
+
+  #### 10. Get All Group Members 
+
+- **Description**: Unsubscribe to the group messages .
+- **URL**: `/product/chat/members/:reviewId`
+- **Method**: `GET`
+- **Request params**:
+  - `reviewId1 (string) - For finding all the members who have subed to the topic of this reveiwID 
+- **Response**:
+  - `200 OK`: All Members found successfully.
+  - `500 Internal Server Error`: Error while Finding all group memebers
